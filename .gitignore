@@ -6,3 +6,4 @@ obj/
 # Godot C#
 .mono/
 data_*/
+builds/
