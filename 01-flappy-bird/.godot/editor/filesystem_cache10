@@ -1,6 +1,7 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1788734083
+::res://::1788736416
 CharacterScript.cs::CSharpScript::7850850217718821571::1788717756::0::1::::<>CharacterBody2D<><>0<>0<><>::
+export_presets.cfg::TextFile::-1::1788735823::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::9094545124108562452::1788653670::1788653681::1::::<><><>0<>0<>73f0553a607e049bbffbb24467513abe<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 level.tscn::PackedScene::7309470025877880190::1788732468::0::1::::<><><>0<>0<><>::uid://ofbvmaxeej2a::::res://Stage.cs<>uid://d2tp3g4jesmum::::res://icon.svg<>uid://dj4amduw2vi1x::::res://CharacterScript.cs<>uid://dovrlo613bb1q::::res://pipe_pair.tscn<>uid://b7nrh16cqpp4r::::res://_art/skybox-alien.png<>uid://w66ltjwxgh4h::::res://_art/_bg-elements/cloud2.png<>uid://3mupa6ufta4p::::res://_art/_bg-elements/cloud3.png<>uid://dlbont555kxln::::res://_art/_bg-elements/cloud4.png<>uid://dosmk21bywtvs::::res://_art/_bg-elements/fence.png<>uid://0xt6a4w3w574::::res://_art/_bg-elements/tree34.png<>uid://hohxovh7e3iq::::res://_art/_bg-elements/tree31.png<>uid://dg1g7nmeql3yn::::res://_art/_bg-elements/tree30.png<>uid://cnrvh5lxttenw::::res://_art/_bg-elements/tree17.png<>uid://djvnspbjtx53v::::res://_art/_bg-elements/tree07.png
 PipePair.cs::CSharpScript::8137810760534724410::1788714869::0::1::::<>Node2D<><>0<>0<><>::

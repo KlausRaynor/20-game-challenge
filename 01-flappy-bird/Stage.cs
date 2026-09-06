@@ -56,8 +56,8 @@ public partial class Stage : Node2D
 
 	private void OnTimeout()
 	{
-		float newY = GD.Randf()*100;
-		waitTime -= 0.1;
+		float newY = GD.RandRange(-170, 250);
+		waitTime -= 0.01;
 		if (waitTime <= 0.3)
 			waitTime = 0.3;
 		timer.WaitTime = waitTime;
