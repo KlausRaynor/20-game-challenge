@@ -1,0 +1,8 @@
+# .NET
+bin/
+obj/
+*.user
+
+# Godot C#
+.mono/
+data_*/

@@ -1,0 +1,14 @@
+Parallax2D
+CanvasGroup
+Sprite2D
+Label
+Button
+MenuButton
+VBoxContainer
+MarginContainer
+PanelContainer
+ColorRect
+Timer
+CollisionShape2D
+StaticBody2D
+Node2D
