@@ -2,9 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://bbln6bi7y3xa3" path="res://_art/skybox-space.png" id="1_4ubfd"]
 [ext_resource type="Texture2D" uid="uid://gsod77stuove" path="res://icon.svg" id="2_gsjio"]
+[ext_resource type="Script" uid="uid://bdwew2018wtba" path="res://Paddle.cs" id="2_mwpjy"]
+[ext_resource type="Script" uid="uid://cl3weq0246gu" path="res://Ball.cs" id="4_d3qrh"]
+[ext_resource type="Texture2D" uid="uid://desxhmqkfjw83" path="res://_art/balls/planet08.png" id="4_gsj67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csrmj"]
 size = Vector2(239, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_csrmj"]
 
 [node name="Stage" type="Node2D" unique_id=107716094]
 
@@ -13,13 +18,26 @@ position = Vector2(326.75, 576.5)
 scale = Vector2(0.1607666, 0.5629882)
 texture = ExtResource("1_4ubfd")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=994792691]
+[node name="Paddle" type="CharacterBody2D" parent="." unique_id=994792691]
 position = Vector2(328, 1110)
+script = ExtResource("2_mwpjy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1291397812]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle" unique_id=1291397812]
 shape = SubResource("RectangleShape2D_csrmj")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1502676467]
+[node name="Sprite2D" type="Sprite2D" parent="Paddle" unique_id=1502676467]
 position = Vector2(-3.8146973e-06, -0.5000019)
 scale = Vector2(1.859375, 0.16406249)
 texture = ExtResource("2_gsjio")
+
+[node name="Ball" type="CharacterBody2D" parent="." unique_id=734474435]
+position = Vector2(273, 146)
+script = ExtResource("4_d3qrh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=576523747]
+shape = SubResource("CircleShape2D_csrmj")
+debug_color = Color(0.91909283, 0.15762067, 0.58767986, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball/CollisionShape2D" unique_id=11838421]
+scale = Vector2(0.021093749, 0.021093749)
+texture = ExtResource("4_gsj67")
