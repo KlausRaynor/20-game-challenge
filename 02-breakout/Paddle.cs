@@ -5,12 +5,12 @@ public partial class Paddle : CharacterBody2D
 {
 	public const float Speed = 300.0f;
 
+	[Signal]
+	public delegate void BattedEventHandler();
+
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
-
-
-
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
