@@ -6,10 +6,19 @@ public partial class Ball : CharacterBody2D
 	[Export] public float BounceSteepness = 2.0f;
 
 	private Vector2 _direction = new Vector2(GD.Randf() * 2f - 1f, 1).Normalized();
+	private Vector2 startingPos = new Vector2(272.0f, 146.0f);
+
 
 	public override void _PhysicsProcess(double delta)
 	{
 		Velocity = _direction * Speed;
+
+		// checks for OOB bottom of screen and resets position
+		if (GlobalPosition.Y > 1200)
+		{
+			GlobalPosition = startingPos;
+			_direction = new Vector2(GD.Randf() * 2f - 1f, 1).Normalized();
+		}
 
 		KinematicCollision2D collision = MoveAndCollide(Velocity * (float)delta);
 
@@ -28,6 +37,7 @@ public partial class Ball : CharacterBody2D
 		{
 			_direction = _direction.Bounce(collision.GetNormal());
 		}
+
 	}
 
 	private float GetPaddleHalfWidth(Node2D paddle)

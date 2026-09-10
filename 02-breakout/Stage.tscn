@@ -1,42 +1,34 @@
 [gd_scene format=3 uid="uid://dkdi0bs6tx0dv"]
 
 [ext_resource type="Texture2D" uid="uid://bbln6bi7y3xa3" path="res://_art/skybox-space.png" id="1_4ubfd"]
-[ext_resource type="Texture2D" uid="uid://gsod77stuove" path="res://icon.svg" id="2_gsjio"]
-[ext_resource type="Script" uid="uid://bdwew2018wtba" path="res://Paddle.cs" id="2_mwpjy"]
+[ext_resource type="Script" uid="uid://c31lweg1jmy2" path="res://Stage.cs" id="1_lneo4"]
+[ext_resource type="PackedScene" uid="uid://c0vb5e20lge3j" path="res://paddle.tscn" id="3_2p67s"]
 [ext_resource type="PackedScene" uid="uid://bddn0mp8tbopi" path="res://ball.tscn" id="4_gsj67"]
 [ext_resource type="PackedScene" uid="uid://c08iu127mvysw" path="res://v-wall.tscn" id="5_r7lnk"]
 [ext_resource type="PackedScene" uid="uid://bigtylv74m2n" path="res://ht-wall.tscn" id="6_2p67s"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_csrmj"]
-size = Vector2(200, 20)
+[ext_resource type="PackedScene" uid="uid://diiou40xgnypk" path="res://brick.tscn" id="8_5n5ix"]
 
 [node name="Stage" type="Node2D" unique_id=107716094]
+script = ExtResource("1_lneo4")
+BallScene = ExtResource("4_gsj67")
+PaddleScene = ExtResource("3_2p67s")
+BrickScene = ExtResource("8_5n5ix")
 
 [node name="SkyboxSpace" type="Sprite2D" parent="." unique_id=2016451861]
 position = Vector2(326.75, 576.5)
 scale = Vector2(0.1607666, 0.5629882)
 texture = ExtResource("1_4ubfd")
 
-[node name="Paddle" type="CharacterBody2D" parent="." unique_id=994792691 groups=["Paddle"]]
+[node name="Paddle" parent="." unique_id=57238333 instance=ExtResource("3_2p67s")]
 position = Vector2(328, 1110)
-script = ExtResource("2_mwpjy")
-
-[node name="paddleCollider" type="CollisionShape2D" parent="Paddle" unique_id=1291397812]
-unique_name_in_owner = true
-shape = SubResource("RectangleShape2D_csrmj")
-
-[node name="Sprite2D" type="Sprite2D" parent="Paddle" unique_id=1502676467]
-position = Vector2(-3.8146973e-06, -0.5000019)
-scale = Vector2(1.859375, 0.16406249)
-texture = ExtResource("2_gsjio")
 
 [node name="Ball" parent="." unique_id=1884118726 instance=ExtResource("4_gsj67")]
-position = Vector2(272, 146)
+position = Vector2(324, 357)
 
-[node name="StaticBody2D" parent="." unique_id=1253050435 instance=ExtResource("5_r7lnk")]
+[node name="LeftWall" parent="." unique_id=1253050435 instance=ExtResource("5_r7lnk")]
 
-[node name="StaticBody2D3" parent="." unique_id=1612997374 instance=ExtResource("6_2p67s")]
+[node name="TopWall" parent="." unique_id=1612997374 instance=ExtResource("6_2p67s")]
 position = Vector2(176, -3)
 
-[node name="StaticBody2D2" parent="." unique_id=2114781247 instance=ExtResource("5_r7lnk")]
+[node name="RightWall" parent="." unique_id=2114781247 instance=ExtResource("5_r7lnk")]
 position = Vector2(707, 2)
