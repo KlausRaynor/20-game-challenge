@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cngf01umnt2v4"]
+
+[node name="Label" type="Label" unique_id=690397800]
+offset_left = 172.0
+offset_top = 318.0
+offset_right = 439.0
+offset_bottom = 362.0
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -7,12 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://c08iu127mvysw" path="res://v-wall.tscn" id="5_r7lnk"]
 [ext_resource type="PackedScene" uid="uid://bigtylv74m2n" path="res://ht-wall.tscn" id="6_2p67s"]
 [ext_resource type="PackedScene" uid="uid://diiou40xgnypk" path="res://brick.tscn" id="8_5n5ix"]
+[ext_resource type="PackedScene" uid="uid://cngf01umnt2v4" path="res://label.tscn" id="8_lneo4"]
 
 [node name="Stage" type="Node2D" unique_id=107716094]
 script = ExtResource("1_lneo4")
 BallScene = ExtResource("4_gsj67")
 PaddleScene = ExtResource("3_2p67s")
 BrickScene = ExtResource("8_5n5ix")
+LabelScene = ExtResource("8_lneo4")
 
 [node name="SkyboxSpace" type="Sprite2D" parent="." unique_id=2016451861]
 position = Vector2(326.75, 576.5)
@@ -32,3 +34,5 @@ position = Vector2(176, -3)
 
 [node name="RightWall" parent="." unique_id=2114781247 instance=ExtResource("5_r7lnk")]
 position = Vector2(707, 2)
+
+[node name="Label" parent="." unique_id=690397800 instance=ExtResource("8_lneo4")]

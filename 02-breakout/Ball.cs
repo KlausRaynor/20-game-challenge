@@ -2,11 +2,12 @@ using Godot;
 
 public partial class Ball : CharacterBody2D
 {
-	[Export] public float Speed = 600.0f;
+	[Export] public float Speed = 600;
 	[Export] public float BounceSteepness = 2.0f;
 
 	private Vector2 _direction = new Vector2(GD.Randf() * 2f - 1f, 1).Normalized();
-	private Vector2 startingPos = new Vector2(272.0f, 146.0f);
+	private Vector2 startingPos = new Vector2(272.0f, 346.0f);
+
 
 
 	public override void _PhysicsProcess(double delta)
@@ -22,22 +23,29 @@ public partial class Ball : CharacterBody2D
 
 		KinematicCollision2D collision = MoveAndCollide(Velocity * (float)delta);
 
+		
+
 		if (collision == null)
 			return;
 
-		if (collision.GetCollider() is Node2D body && body.IsInGroup("Paddle"))
+		if (collision.GetCollider() is Node2D body)
 		{
-			float halfWidth = GetPaddleHalfWidth(body);
-			float offsetX = collision.GetPosition().X - body.GlobalPosition.X;
-			float factor = Mathf.Clamp(offsetX / halfWidth, -1f, 1f);
+			if (body.IsInGroup("Paddle"))
+			{
+				float halfWidth = GetPaddleHalfWidth(body);
+				float offsetX = collision.GetPosition().X - body.GlobalPosition.X;
+				float factor = Mathf.Clamp(offsetX / halfWidth, -1f, 1f);
+				_direction = new Vector2(factor, -BounceSteepness).Normalized();
+			}
+			else
+			{
+				if (body is Brick brick)
+					brick.Hit();
 
-			_direction = new Vector2(factor, -BounceSteepness).Normalized();
-		}
-		else
-		{
-			_direction = _direction.Bounce(collision.GetNormal());
-		}
+				_direction = _direction.Bounce(collision.GetNormal());
+			}
 
+		}
 	}
 
 	private float GetPaddleHalfWidth(Node2D paddle)
