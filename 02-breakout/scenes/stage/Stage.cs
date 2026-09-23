@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.ComponentModel;
+using System.IO.Pipes;
 using System.Runtime.InteropServices.Marshalling;
 
 public partial class Stage : Node2D
@@ -68,10 +69,17 @@ public partial class Stage : Node2D
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-		statsLabel.Text = "Current Ball Speed: " + ball.Speed;
+
+
+	// called 60 times a second. Delta is constant(1/60).
+    public override void _PhysicsProcess(double delta)
+    {
+        var pos = ball.GlobalPosition;
+		var bounds = GetViewportRect().Grow(200f);
+		if(!bounds.HasPoint(pos))
+			GD.PushError($"DEAD STATE: ball escaped playfield at {pos}");
 	}
+
 
 	private void OnBrickDestroyed(int incScore)
 	{

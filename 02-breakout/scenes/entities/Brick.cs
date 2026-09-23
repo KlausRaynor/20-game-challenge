@@ -11,12 +11,6 @@ public partial class Brick : StaticBody2D
 		this.AddToGroup("Bricks");
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-		
-	}
-
 	public void Hit()
 	{
 		EmitSignal(SignalName.BrickDestroyed, _brickScore);

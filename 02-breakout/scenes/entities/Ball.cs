@@ -2,9 +2,19 @@ using Godot;
 
 public partial class Ball : CharacterBody2D
 {
-	[Export] public float Speed = 600;
+	private float _speed = 600;
+	[Export] public float Speed
+	{
+		get => _speed;
+		set
+		{
+			if (Mathf.IsEqualApprox(_speed, value)) return;
+			_speed = value;
+			EmitSignal(SignalName.SpeedChanged, _speed);
+		}
+	};
 	[Export] public float BounceSteepness = 2.0f;
-
+	[Signal] public delegate void SpeedChangedEventHandler(float _speed);
 	private Vector2 _direction = new Vector2(GD.Randf() * 2f - 1f, 1).Normalized();
 	private Vector2 startingPos = new Vector2(317.0f, 498.0f);
 	private int defaultSpeed = 600;
@@ -24,16 +34,6 @@ public partial class Ball : CharacterBody2D
 			_direction = new Vector2(GD.Randf() * 2f - 1f, 1).Normalized();
 		}
 
-		// var motion = Velocity * (float) delta;
-		// for (int i = 0; i < 4 && motion != Vector2.Zero; i++)
-		// {
-		// 	var collision = MoveAndCollide(motion);
-		// 	if(collision == null)
-		// 	{
-		// 		return;
-		// 	}
-		// 	motion = collision.GetRemainder().Bounce(collision.GetNormal());
-		// }
 		KinematicCollision2D collision = MoveAndCollide(Velocity * (float)delta);
 
 		
