@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dovrlo613bb1q"]
+
+[ext_resource type="Script" uid="uid://dn7as30kjm2vu" path="res://scenes/entities/PipePair.cs" id="1_nep78"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b4ue"]
+size = Vector2(55, 664)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2txt"]
+size = Vector2(57, 565)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_csrmj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gowt0"]
+
+[node name="PipePair" type="Node2D" unique_id=120140937]
+position = Vector2(32, 0)
+script = ExtResource("1_nep78")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=991450404]
+
+[node name="TopCollider" type="CollisionShape2D" parent="StaticBody2D" unique_id=2118973692]
+position = Vector2(-2.5, -156)
+shape = SubResource("RectangleShape2D_0b4ue")
+debug_color = Color(0, 0.31944275, 0.5899333, 0.41960785)
+
+[node name="BottomCollider" type="CollisionShape2D" parent="StaticBody2D" unique_id=56292756]
+position = Vector2(-1.5, 645.5)
+shape = SubResource("RectangleShape2D_f2txt")
+
+[node name="TopSprite" type="Sprite2D" parent="." unique_id=1963809939]
+position = Vector2(-1.000041, -156.5)
+scale = Vector2(60, 667)
+texture = SubResource("PlaceholderTexture2D_csrmj")
+
+[node name="BottomSprite" type="Sprite2D" parent="." unique_id=2095304077]
+position = Vector2(0, 646.5)
+scale = Vector2(59.999992, 567)
+texture = SubResource("PlaceholderTexture2D_gowt0")

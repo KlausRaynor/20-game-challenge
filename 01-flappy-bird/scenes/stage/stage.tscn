@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://dce05ylg8aa4u"]
+
+[ext_resource type="Script" uid="uid://ofbvmaxeej2a" path="res://scenes/stage/Stage.cs" id="1_0b4ue"]
+[ext_resource type="Texture2D" uid="uid://d2tp3g4jesmum" path="res://icon.svg" id="1_u52ul"]
+[ext_resource type="Script" uid="uid://dj4amduw2vi1x" path="res://scripts/CharacterScript.cs" id="1_vonw3"]
+[ext_resource type="PackedScene" uid="uid://dovrlo613bb1q" path="res://scenes/entities/pipe_pair.tscn" id="4_f2txt"]
+[ext_resource type="Texture2D" uid="uid://b7nrh16cqpp4r" path="res://assets/art/skyboxes/skybox-alien.png" id="5_f2txt"]
+[ext_resource type="Texture2D" uid="uid://w66ltjwxgh4h" path="res://assets/art/backgrounds/cloud2.png" id="7_8b0r0"]
+[ext_resource type="Texture2D" uid="uid://3mupa6ufta4p" path="res://assets/art/backgrounds/cloud3.png" id="8_h6smj"]
+[ext_resource type="Texture2D" uid="uid://dlbont555kxln" path="res://assets/art/backgrounds/cloud4.png" id="9_v5j5c"]
+[ext_resource type="Texture2D" uid="uid://dosmk21bywtvs" path="res://assets/art/backgrounds/fence.png" id="10_5pxul"]
+[ext_resource type="Texture2D" uid="uid://0xt6a4w3w574" path="res://assets/art/backgrounds/tree34.png" id="11_h6smj"]
+[ext_resource type="Texture2D" uid="uid://hohxovh7e3iq" path="res://assets/art/backgrounds/tree31.png" id="12_4c15r"]
+[ext_resource type="Texture2D" uid="uid://dg1g7nmeql3yn" path="res://assets/art/backgrounds/tree30.png" id="12_v5j5c"]
+[ext_resource type="Texture2D" uid="uid://cnrvh5lxttenw" path="res://assets/art/backgrounds/tree17.png" id="13_5pxul"]
+[ext_resource type="Texture2D" uid="uid://djvnspbjtx53v" path="res://assets/art/backgrounds/tree07.png" id="14_fedht"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0b4ue"]
+bg_color = Color(0.5823919, 0.6050425, 0.61159736, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.3093977, 0.2975786, 0.28552368, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csrmj"]
+size = Vector2(125, 128.5)
+
+[node name="Stage" type="Node2D" unique_id=2069881862]
+script = ExtResource("1_0b4ue")
+PipeScene = ExtResource("4_f2txt")
+
+[node name="Score" type="Label" parent="." unique_id=1137753814]
+unique_name_in_owner = true
+z_index = 100
+offset_left = 456.0
+offset_top = 21.0
+offset_right = 780.0
+offset_bottom = 104.0
+text = "SCORE: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" type="ColorRect" parent="." unique_id=634485987]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+z_index = 10
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1147.0
+offset_bottom = 647.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.15294118)
+
+[node name="PanelContainer" type="PanelContainer" parent="GameOver" unique_id=236702332]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -219.0
+offset_right = 224.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0b4ue")
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOver/PanelContainer" unique_id=1845118991]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/PanelContainer/MarginContainer" unique_id=1846073878]
+layout_mode = 2
+
+[node name="lblGameOver" type="Label" parent="GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=1207377000]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+theme_override_font_sizes/font_size = 36
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalScoreLabel" type="Label" parent="GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=576751085]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2784314, 0.2784314, 0.2784314, 1)
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btnPlayAgain" type="Button" parent="GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=1571184563]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Play Again"
+
+[node name="btnQuit" type="Button" parent="GameOver/PanelContainer/MarginContainer/VBoxContainer" unique_id=1035580483]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1530364451]
+position = Vector2(293, 191)
+script = ExtResource("1_vonw3")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=648090418]
+z_index = 100
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_u52ul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=487106901]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_csrmj")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1079332132]
+wait_time = 3.0
+autostart = true
+
+[node name="Skybox" type="Sprite2D" parent="." unique_id=281797194]
+unique_name_in_owner = true
+z_index = -10
+position = Vector2(574, 324)
+scale = Vector2(0.2797852, 0.31347656)
+texture = ExtResource("5_f2txt")
+
+[node name="CloudParallax" type="Parallax2D" parent="." unique_id=1143252179]
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(-25, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CloudParallax" unique_id=1701685721]
+
+[node name="Cloud2" type="Sprite2D" parent="CloudParallax" unique_id=698329368]
+position = Vector2(864, 178)
+texture = ExtResource("7_8b0r0")
+
+[node name="Cloud3" type="Sprite2D" parent="CloudParallax" unique_id=851839952]
+position = Vector2(509, 119)
+texture = ExtResource("8_h6smj")
+
+[node name="Cloud4" type="Sprite2D" parent="CloudParallax" unique_id=508254755]
+position = Vector2(140, 85)
+texture = ExtResource("9_v5j5c")
+
+[node name="FenceParallax" type="Parallax2D" parent="." unique_id=507902968]
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(-100, 0)
+
+[node name="Fence" type="Sprite2D" parent="FenceParallax" unique_id=1811253613]
+z_index = -1
+position = Vector2(54, 608)
+texture = ExtResource("10_5pxul")
+
+[node name="Fence2" type="Sprite2D" parent="FenceParallax" unique_id=1671065683]
+z_index = -1
+position = Vector2(184, 602)
+texture = ExtResource("10_5pxul")
+
+[node name="Fence3" type="Sprite2D" parent="FenceParallax" unique_id=169192981]
+z_index = -1
+position = Vector2(311, 602)
+texture = ExtResource("10_5pxul")
+
+[node name="Fence4" type="Sprite2D" parent="FenceParallax" unique_id=321366357]
+z_index = -1
+position = Vector2(443, 602)
+texture = ExtResource("10_5pxul")
+
+[node name="Fence5" type="Sprite2D" parent="FenceParallax" unique_id=2125879136]
+z_index = -1
+position = Vector2(571, 602)
+texture = ExtResource("10_5pxul")
+
+[node name="Fence6" type="Sprite2D" parent="FenceParallax" unique_id=980613460]
+z_index = -1
+position = Vector2(699, 600)
+texture = ExtResource("10_5pxul")
+
+[node name="Fence7" type="Sprite2D" parent="FenceParallax" unique_id=1846171623]
+z_index = -1
+position = Vector2(844, 605)
+texture = ExtResource("10_5pxul")
+
+[node name="Fence8" type="Sprite2D" parent="FenceParallax" unique_id=167288181]
+z_index = -1
+position = Vector2(967, 602)
+texture = ExtResource("10_5pxul")
+
+[node name="Fence9" type="Sprite2D" parent="FenceParallax" unique_id=331002053]
+z_index = -1
+position = Vector2(1083, 606)
+texture = ExtResource("10_5pxul")
+
+[node name="TreeParallax" type="Parallax2D" parent="." unique_id=813986296]
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(-50, 0)
+
+[node name="Tree31" type="Sprite2D" parent="TreeParallax" unique_id=1755969999]
+z_index = -10
+position = Vector2(929, 508)
+texture = ExtResource("12_4c15r")
+
+[node name="Tree34" type="Sprite2D" parent="TreeParallax" unique_id=67368813]
+z_index = -10
+position = Vector2(329, 539)
+texture = ExtResource("11_h6smj")
+
+[node name="Tree30" type="Sprite2D" parent="TreeParallax" unique_id=981915279]
+z_index = -10
+position = Vector2(162, 503)
+texture = ExtResource("12_v5j5c")
+
+[node name="Tree17" type="Sprite2D" parent="TreeParallax" unique_id=865315916]
+z_index = -10
+position = Vector2(782, 579)
+texture = ExtResource("13_5pxul")
+
+[node name="Tree07" type="Sprite2D" parent="TreeParallax" unique_id=1079345418]
+z_index = -10
+position = Vector2(519, 538)
+texture = ExtResource("14_fedht")

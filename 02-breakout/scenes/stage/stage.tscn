@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dkdi0bs6tx0dv"]
+
+[ext_resource type="Texture2D" uid="uid://bbln6bi7y3xa3" path="res://assets/art/skyboxes/skybox-space.png" id="1_4ubfd"]
+[ext_resource type="Script" uid="uid://c31lweg1jmy2" path="res://scenes/stage/Stage.cs" id="1_lneo4"]
+[ext_resource type="PackedScene" uid="uid://c0vb5e20lge3j" path="res://scenes/entities/paddle.tscn" id="3_2p67s"]
+[ext_resource type="PackedScene" uid="uid://bddn0mp8tbopi" path="res://scenes/entities/ball.tscn" id="4_gsj67"]
+[ext_resource type="PackedScene" uid="uid://c08iu127mvysw" path="res://scenes/entities/wall_vertical.tscn" id="5_r7lnk"]
+[ext_resource type="PackedScene" uid="uid://bigtylv74m2n" path="res://scenes/entities/wall_horizontal.tscn" id="6_2p67s"]
+[ext_resource type="PackedScene" uid="uid://diiou40xgnypk" path="res://scenes/entities/brick.tscn" id="8_5n5ix"]
+[ext_resource type="PackedScene" uid="uid://cngf01umnt2v4" path="res://scenes/ui/score_label.tscn" id="8_lneo4"]
+
+[node name="Stage" type="Node2D" unique_id=107716094]
+script = ExtResource("1_lneo4")
+BallScene = ExtResource("4_gsj67")
+PaddleScene = ExtResource("3_2p67s")
+BrickScene = ExtResource("8_5n5ix")
+
+[node name="SkyboxSpace" type="Sprite2D" parent="." unique_id=2016451861]
+position = Vector2(326.75, 576.5)
+scale = Vector2(0.1607666, 0.5629882)
+texture = ExtResource("1_4ubfd")
+
+[node name="Paddle" parent="." unique_id=57238333 instance=ExtResource("3_2p67s")]
+position = Vector2(328, 1110)
+
+[node name="Ball" parent="." unique_id=1884118726 instance=ExtResource("4_gsj67")]
+position = Vector2(317, 498)
+
+[node name="LeftWall" parent="." unique_id=1253050435 instance=ExtResource("5_r7lnk")]
+
+[node name="TopWall" parent="." unique_id=1612997374 instance=ExtResource("6_2p67s")]
+position = Vector2(176, -3)
+
+[node name="RightWall" parent="." unique_id=2114781247 instance=ExtResource("5_r7lnk")]
+position = Vector2(707, 2)
+
+[node name="Label" parent="." unique_id=690397800 instance=ExtResource("8_lneo4")]
+offset_left = 187.0
+offset_top = 8.0
+offset_right = 454.0
+offset_bottom = 52.0
+
+[node name="Stats" type="Label" parent="." unique_id=1791514932]
+offset_left = 5.0
+offset_top = 719.0
+offset_right = 152.0
+offset_bottom = 903.0
