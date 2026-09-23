@@ -12,7 +12,7 @@ public partial class Ball : CharacterBody2D
 			_speed = value;
 			EmitSignal(SignalName.SpeedChanged, _speed);
 		}
-	};
+	}
 	[Export] public float BounceSteepness = 2.0f;
 	[Signal] public delegate void SpeedChangedEventHandler(float _speed);
 	private Vector2 _direction = new Vector2(GD.Randf() * 2f - 1f, 1).Normalized();
